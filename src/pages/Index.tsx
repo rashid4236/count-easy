@@ -34,35 +34,19 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col relative overflow-hidden bg-gradient-to-b from-slate-900 via-slate-800 to-gray-900">
-      {/* Stars Background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-1 h-1 bg-white/60 rounded-full animate-pulse"></div>
-        <div className="absolute top-1/3 right-1/3 w-0.5 h-0.5 bg-white/40 rounded-full animate-pulse delay-500"></div>
-        <div className="absolute top-1/6 right-1/4 w-1.5 h-1.5 bg-white/70 rounded-full animate-pulse delay-1000"></div>
-        <div className="absolute bottom-1/4 left-1/6 w-0.5 h-0.5 bg-white/50 rounded-full animate-pulse delay-700"></div>
-        <div className="absolute bottom-1/3 right-1/6 w-1 h-1 bg-white/40 rounded-full animate-pulse delay-300"></div>
-        <div className="absolute top-1/5 left-1/3 w-0.5 h-0.5 bg-white/60 rounded-full animate-pulse delay-1200"></div>
-        <div className="absolute bottom-1/5 left-1/2 w-1 h-1 bg-white/40 rounded-full animate-pulse delay-800"></div>
-        <div className="absolute top-2/3 right-1/5 w-0.5 h-0.5 bg-white/30 rounded-full animate-pulse delay-400"></div>
-        <div className="absolute top-1/2 left-1/5 w-1.5 h-1.5 bg-white/60 rounded-full animate-pulse delay-600"></div>
-        <div className="absolute bottom-2/3 right-1/3 w-0.5 h-0.5 bg-white/40 rounded-full animate-pulse delay-900"></div>
-        <div className="absolute top-3/4 left-2/3 w-1 h-1 bg-white/50 rounded-full animate-pulse delay-1100"></div>
-        <div className="absolute bottom-1/6 right-2/5 w-0.5 h-0.5 bg-white/40 rounded-full animate-pulse delay-1300"></div>
-      </div>
-      
+    <div className="min-h-screen flex flex-col relative overflow-hidden bg-gray-900">
       {/* Top Half - Backward Counting */}
       <div 
-        className={`flex-1 bg-gradient-to-b from-orange-900/20 via-amber-900/25 to-yellow-800/30 flex items-center justify-center cursor-pointer transition-all duration-300 backdrop-blur-sm ${
-          topPressed ? 'shadow-[inset_0_0_80px_rgba(255,165,0,0.15)]' : 'hover:shadow-[inset_0_0_40px_rgba(255,165,0,0.1)]'
+        className={`flex-1 bg-gradient-to-b from-red-900 to-red-800 flex items-center justify-center cursor-pointer transition-all duration-300 ${
+          topPressed ? 'bg-red-700' : 'hover:bg-red-700'
         }`}
         onClick={decrement}
       >
         <div className="text-center">
-          <div className="text-orange-200/70 text-base font-light mb-8 animate-fade-in tracking-wide">
+          <div className="text-red-100 text-lg font-light mb-8">
             Tap to Count Down
           </div>
-          <div className="text-5xl font-extralight text-orange-100 drop-shadow-sm">
+          <div className="text-6xl font-light text-red-100">
             −
           </div>
         </div>
@@ -70,36 +54,36 @@ const Index = () => {
 
       {/* Center Counter Display */}
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-        <div className="bg-slate-800/60 backdrop-blur-xl border border-slate-600/40 rounded-3xl p-8 shadow-2xl">
+        <div className="bg-gray-800 border border-gray-700 rounded-2xl p-8 shadow-2xl">
           <div className="text-center">
-            <div className="text-7xl font-extralight text-white mb-6 animate-scale-in drop-shadow-lg">
+            <div className="text-7xl font-light text-white mb-6">
               {count}
             </div>
             
             {!showResetConfirm ? (
               <button
                 onClick={handleResetClick}
-                className="bg-slate-700/40 backdrop-blur-md border border-slate-500/50 hover:bg-slate-600/50 text-slate-200 px-6 py-3 rounded-full font-light flex items-center gap-2 mx-auto transition-all duration-300 text-sm tracking-wide hover:scale-105"
+                className="bg-gray-700 hover:bg-gray-600 text-gray-200 px-6 py-3 rounded-full font-light flex items-center gap-2 mx-auto transition-all duration-300 text-sm"
               >
                 <RotateCcw size={16} />
                 Reset
               </button>
             ) : (
               <div className="space-y-4">
-                <div className="text-slate-200 text-sm mb-4">
+                <div className="text-gray-200 text-sm mb-4">
                   Do you want to reset?
                 </div>
                 <div className="flex gap-3 justify-center">
                   <button
                     onClick={confirmReset}
-                    className="bg-green-800/30 backdrop-blur-md border border-green-600/40 hover:bg-green-700/40 text-green-200 px-4 py-2 rounded-full font-light flex items-center gap-2 transition-all duration-300 text-sm hover:scale-105"
+                    className="bg-green-700 hover:bg-green-600 text-green-100 px-4 py-2 rounded-full font-light flex items-center gap-2 transition-all duration-300 text-sm"
                   >
                     <Check size={14} />
                     Yes
                   </button>
                   <button
                     onClick={cancelReset}
-                    className="bg-red-800/30 backdrop-blur-md border border-red-600/40 hover:bg-red-700/40 text-red-200 px-4 py-2 rounded-full font-light flex items-center gap-2 transition-all duration-300 text-sm hover:scale-105"
+                    className="bg-red-700 hover:bg-red-600 text-red-100 px-4 py-2 rounded-full font-light flex items-center gap-2 transition-all duration-300 text-sm"
                   >
                     <X size={14} />
                     No
@@ -113,16 +97,16 @@ const Index = () => {
 
       {/* Bottom Half - Forward Counting */}
       <div 
-        className={`flex-1 bg-gradient-to-t from-green-900/20 via-emerald-900/25 to-teal-800/30 flex items-center justify-center cursor-pointer transition-all duration-300 backdrop-blur-sm ${
-          bottomPressed ? 'shadow-[inset_0_0_80px_rgba(34,197,94,0.15)]' : 'hover:shadow-[inset_0_0_40px_rgba(34,197,94,0.1)]'
+        className={`flex-1 bg-gradient-to-t from-green-900 to-green-800 flex items-center justify-center cursor-pointer transition-all duration-300 ${
+          bottomPressed ? 'bg-green-700' : 'hover:bg-green-700'
         }`}
         onClick={increment}
       >
         <div className="text-center">
-          <div className="text-5xl font-extralight text-green-100 drop-shadow-sm">
+          <div className="text-6xl font-light text-green-100">
             +
           </div>
-          <div className="text-green-200/70 text-base font-light mt-8 animate-fade-in tracking-wide">
+          <div className="text-green-100 text-lg font-light mt-8">
             Tap to Count Up
           </div>
         </div>
