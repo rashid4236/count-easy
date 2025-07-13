@@ -34,24 +34,24 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col relative overflow-hidden bg-gradient-to-b from-indigo-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen flex flex-col relative overflow-hidden bg-gradient-to-b from-orange-900 via-amber-900 to-yellow-900">
       {/* Stars Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-1 h-1 bg-white rounded-full animate-pulse"></div>
         <div className="absolute top-1/3 right-1/3 w-0.5 h-0.5 bg-white rounded-full animate-pulse delay-500"></div>
         <div className="absolute top-1/6 right-1/4 w-1.5 h-1.5 bg-yellow-200 rounded-full animate-pulse delay-1000"></div>
         <div className="absolute bottom-1/4 left-1/6 w-0.5 h-0.5 bg-white rounded-full animate-pulse delay-700"></div>
-        <div className="absolute bottom-1/3 right-1/6 w-1 h-1 bg-blue-200 rounded-full animate-pulse delay-300"></div>
+        <div className="absolute bottom-1/3 right-1/6 w-1 h-1 bg-orange-200 rounded-full animate-pulse delay-300"></div>
         <div className="absolute top-1/5 left-1/3 w-0.5 h-0.5 bg-white rounded-full animate-pulse delay-1200"></div>
         <div className="absolute bottom-1/5 left-1/2 w-1 h-1 bg-white rounded-full animate-pulse delay-800"></div>
-        <div className="absolute top-2/3 right-1/5 w-0.5 h-0.5 bg-purple-200 rounded-full animate-pulse delay-400"></div>
-        <div className="absolute top-1/2 left-1/5 w-1.5 h-1.5 bg-cyan-200 rounded-full animate-pulse delay-600"></div>
+        <div className="absolute top-2/3 right-1/5 w-0.5 h-0.5 bg-amber-200 rounded-full animate-pulse delay-400"></div>
+        <div className="absolute top-1/2 left-1/5 w-1.5 h-1.5 bg-green-200 rounded-full animate-pulse delay-600"></div>
         <div className="absolute bottom-2/3 right-1/3 w-0.5 h-0.5 bg-white rounded-full animate-pulse delay-900"></div>
       </div>
       
       {/* Top Half - Backward Counting */}
       <div 
-        className={`flex-1 bg-gradient-to-b from-indigo-400/30 via-purple-500/40 to-blue-600/50 flex items-center justify-center cursor-pointer transition-all duration-300 backdrop-blur-sm ${
+        className={`flex-1 bg-gradient-to-b from-orange-400/30 via-red-500/40 to-orange-600/50 flex items-center justify-center cursor-pointer transition-all duration-300 backdrop-blur-sm ${
           topPressed ? 'shadow-[inset_0_0_100px_rgba(255,255,255,0.2)]' : 'hover:shadow-[inset_0_0_50px_rgba(255,255,255,0.1)]'
         }`}
         onClick={decrement}
@@ -111,7 +111,7 @@ const Index = () => {
 
       {/* Bottom Half - Forward Counting */}
       <div 
-        className={`flex-1 bg-gradient-to-t from-purple-400/30 via-indigo-500/40 to-cyan-600/50 flex items-center justify-center cursor-pointer transition-all duration-300 backdrop-blur-sm ${
+        className={`flex-1 bg-gradient-to-t from-green-400/30 via-emerald-500/40 to-teal-600/50 flex items-center justify-center cursor-pointer transition-all duration-300 backdrop-blur-sm ${
           bottomPressed ? 'shadow-[inset_0_0_100px_rgba(255,255,255,0.2)]' : 'hover:shadow-[inset_0_0_50px_rgba(255,255,255,0.1)]'
         }`}
         onClick={increment}
