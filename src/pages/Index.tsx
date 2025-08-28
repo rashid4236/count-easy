@@ -1,12 +1,20 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { RotateCcw, X, Check } from 'lucide-react';
 
 const Index = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(() => {
+    const saved = localStorage.getItem('counter-value');
+    return saved ? parseInt(saved, 10) : 0;
+  });
   const [topPressed, setTopPressed] = useState(false);
   const [bottomPressed, setBottomPressed] = useState(false);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
+
+  // Save count to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('counter-value', count.toString());
+  }, [count]);
 
   const increment = () => {
     setCount(prev => prev + 1);
